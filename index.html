@@ -5,146 +5,119 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Limitless Tournaments</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <style>
     body {
       font-family: 'Orbitron', sans-serif;
+      background-color: #111;
+      color: #f0f0f0;
+    }
+    .navbar {
+      background-color: #000;
+    }
+    .navbar-brand, .nav-link {
+      color: #ff4747 !important;
+    }
+    .hero {
       background: linear-gradient(to right, #0f0f0f, #1a1a1a);
-      color: #e0e0e0;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: #ff1a1a;
-      padding: 40px 20px;
+      padding: 100px 20px;
       text-align: center;
-      box-shadow: 0 0 20px #ff1a1a;
     }
-    header h1 {
-      margin: 0;
-      font-size: 3rem;
-      color: #fff;
-      text-transform: uppercase;
+    .hero h1 {
+      font-size: 3.5rem;
+      color: #ff1a1a;
     }
-    header p {
+    .hero p {
       font-size: 1.2rem;
-      margin-top: 10px;
-      color: #f5f5f5;
-    }
-    nav {
-      background: #1c1c1c;
-      display: flex;
-      justify-content: center;
-      padding: 15px 0;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-    nav a {
-      color: #ff4747;
-      text-decoration: none;
-      margin: 0 20px;
-      font-weight: bold;
-      font-size: 1rem;
-      transition: 0.3s;
-    }
-    nav a:hover {
-      color: white;
+      color: #ccc;
     }
     .section {
       padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
     }
     .section h2 {
       color: #ff4747;
-      font-size: 2rem;
       border-bottom: 2px solid #ff4747;
-      padding-bottom: 10px;
       margin-bottom: 30px;
     }
-    .tournament {
-      background: #2a2a2a;
-      padding: 25px;
-      margin: 20px 0;
-      border-left: 5px solid #ff1a1a;
-      border-radius: 8px;
-      box-shadow: 0 0 10px #111;
+    .card {
+      background-color: #1e1e1e;
+      color: #fff;
+      border: none;
+      border-left: 4px solid #ff1a1a;
+    }
+    .btn-primary {
+      background-color: #ff1a1a;
+      border: none;
+    }
+    .btn-primary:hover {
+      background-color: #e60000;
     }
     footer {
+      background: #000;
       text-align: center;
-      padding: 30px;
-      background: #111;
-      font-size: 14px;
-      color: gray;
-    }
-    .button {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 12px 25px;
-      background: #ff1a1a;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-      transition: background 0.3s ease;
-    }
-    .button:hover {
-      background: #e60000;
-    }
-    ul li {
-      margin: 10px 0;
+      color: #999;
+      padding: 30px 0;
     }
   </style>
 </head>
 <body>
-  <header>
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Limitless Tournaments</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tournaments">Tournaments</a></li>
+          <li class="nav-item"><a class="nav-link" href="#winners">Winners</a></li>
+          <li class="nav-item"><a class="nav-link" href="#rules">Rules</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header id="home" class="hero">
     <h1>Limitless Tournaments</h1>
     <p>Daily Scrims | Blast Tournaments | Giveaway Tours | Premium Banners</p>
   </header>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#tournaments">Tournaments</a>
-    <a href="#winners">Winners</a>
-    <a href="#rules">Rules</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <div id="home" class="section">
-    <h2>Welcome to Limitless Tournaments</h2>
-    <p>Join the ultimate battleground for Free Fire players! We host highly competitive daily scrims and thrilling tournaments where elite players rise and legends are born. Get exclusive access to our premium banners and monthly giveaways.</p>
-    <a class="button" href="#tournaments">Register for Battle</a>
-  </div>
-
-  <div id="tournaments" class="section">
+  <section id="tournaments" class="section container">
     <h2>Upcoming Tournaments</h2>
-    <div class="tournament">
-      <h3>🔥 Free Fire Solo Blast</h3>
-      <p><strong>Date:</strong> July 25, 2025</p>
-      <p><strong>Entry Fee:</strong> Free</p>
-      <p><strong>Prize Pool:</strong> 1000 Diamonds + Featured Highlight</p>
-      <a class="button" href="https://your-registration-form-link.com" target="_blank">Register Now</a>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card p-4">
+          <h4>🔥 Free Fire Solo Blast</h4>
+          <p><strong>Date:</strong> July 25, 2025</p>
+          <p><strong>Entry Fee:</strong> Free</p>
+          <p><strong>Prize Pool:</strong> 1000 Diamonds + Featured Highlight</p>
+          <a class="btn btn-primary" href="https://your-registration-form-link.com" target="_blank">Register Now</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card p-4">
+          <h4>🎯 Squad Rush Weekly Scrim</h4>
+          <p><strong>Date:</strong> Every Friday</p>
+          <p><strong>Entry Fee:</strong> Free</p>
+          <p><strong>Prize Pool:</strong> Bragging Rights + Discord Role</p>
+          <a class="btn btn-primary" href="https://your-registration-form-link.com" target="_blank">Join Scrim</a>
+        </div>
+      </div>
     </div>
-    <div class="tournament">
-      <h3>🎯 Squad Rush Weekly Scrim</h3>
-      <p><strong>Date:</strong> Every Friday</p>
-      <p><strong>Entry Fee:</strong> Free</p>
-      <p><strong>Prize Pool:</strong> Bragging Rights + Discord Role</p>
-      <a class="button" href="https://your-registration-form-link.com" target="_blank">Join Scrim</a>
-    </div>
-  </div>
+  </section>
 
-  <div id="winners" class="section">
+  <section id="winners" class="section container">
     <h2>Champions Gallery</h2>
-    <p>Hall of Fame: Recognizing the top performers and legends of past tournaments!</p>
     <ul>
       <li>🏆 Team X - June 20 Blast Cup Champions</li>
       <li>🥇 Solo King - May Scrim Battle MVP</li>
       <li>🔥 Squad Omega - April Invitational Winners</li>
     </ul>
-  </div>
+  </section>
 
-  <div id="rules" class="section">
+  <section id="rules" class="section container">
     <h2>Tournament Rules</h2>
     <ul>
       <li>No third-party tools, hacks, or exploits allowed</li>
@@ -153,20 +126,19 @@
       <li>Be online 10 minutes before match start</li>
       <li>Follow match lobby codes & instructions from admins strictly</li>
     </ul>
-  </div>
+  </section>
 
-  <div id="contact" class="section">
+  <section id="contact" class="section container">
     <h2>Contact & Support</h2>
-    <p>Need help or want to collaborate? Reach out anytime:</p>
     <p>📱 WhatsApp: <strong>+880XXXXXXXXXX</strong></p>
     <p>📧 Email: <strong>limitless.tournaments@gmail.com</strong></p>
-    <a class="button" href="https://facebook.com/LimitlessTournaments" target="_blank">Follow us on Facebook</a>
-  </div>
+    <a class="btn btn-primary" href="https://facebook.com/LimitlessTournaments" target="_blank">Follow us on Facebook</a>
+  </section>
 
   <footer>
     &copy; 2025 Limitless Tournaments. All rights reserved. | Designed with 🔥 by Limitless Team
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
