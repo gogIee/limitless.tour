@@ -47,28 +47,38 @@
       border-radius: 0 15px 15px 0;
     }
     .header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
       background: linear-gradient(90deg, #4a90e2, #f39c12);
-      padding: 30px;
-      text-align: center;
+      padding: 20px 30px;
       border-radius: 15px;
       color: #fff;
       box-shadow: 0 0 10px #d6a43a;
+      margin-bottom: 30px;
+    }
+    .header img.logo {
+      height: 60px;
+      width: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 8px #fff7cc;
     }
     .header h1 {
       font-weight: 700;
-      font-size: 3rem;
-      margin-bottom: 8px;
+      font-size: 2.8rem;
+      margin: 0;
     }
     .header p {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 500;
       letter-spacing: 0.05em;
+      margin: 0;
     }
     .dashboard {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 25px;
-      margin-top: 40px;
+      margin-top: 20px;
     }
     .card {
       background-color: #f9f9f9;
@@ -142,26 +152,29 @@
 
   <!-- Main Content -->
   <div class="main-content">
-    <div class="header" id="home">
-      <h1>Limitless Tournaments</h1>
-      <p>Daily Scrims | Blast Tournaments | Giveaway Tours | Premium Banners</p>
-    </div>
+    <header class="header" id="home">
+      <img src="https://i.postimg.cc/F7Gzg5g1/limitless-logo.png" alt="Limitless Tournaments Logo" class="logo" />
+      <div>
+        <h1>Limitless Tournaments</h1>
+        <p>Daily Scrims | Blast Tournaments | Giveaway Tours | Premium Banners</p>
+      </div>
+    </header>
 
     <!-- Hero Banner -->
-    <div id="carouselExample" class="carousel slide mt-3" data-bs-ride="carousel">
+    <div id="carouselExample" class="carousel slide rounded" data-bs-ride="carousel" style="box-shadow: 0 0 20px #f39c12;">
       <div class="carousel-inner rounded">
         <div class="carousel-item active">
-          <img src="https://via.placeholder.com/1200x300/4a90e2/f39c12?text=🔥+Free+Fire+Tournaments" class="d-block w-100" alt="Banner" />
+          <img src="https://via.placeholder.com/1200x300/4a90e2/f39c12?text=🔥+Free+Fire+Tournaments" class="d-block w-100 rounded" alt="Banner" />
         </div>
         <div class="carousel-item">
-          <img src="https://via.placeholder.com/1200x300/f39c12/4a90e2?text=🏆+Win+Diamonds+Daily" class="d-block w-100" alt="Banner" />
+          <img src="https://via.placeholder.com/1200x300/f39c12/4a90e2?text=🏆+Win+Diamonds+Daily" class="d-block w-100 rounded" alt="Banner" />
         </div>
       </div>
     </div>
 
     <!-- Tournaments -->
-    <section id="tournaments">
-      <h2 class="text-primary mt-5 fw-bold">Upcoming Tournaments</h2>
+    <section id="tournaments" class="mt-4">
+      <h2 class="text-primary fw-bold">Upcoming Tournaments</h2>
       <div class="dashboard">
         <div class="card">
           <h4><i class="fas fa-fire text-warning"></i> Free Fire Solo Blast</h4>
@@ -215,12 +228,12 @@
       <h2 class="text-primary fw-bold">Contact & Support</h2>
       <p>📱 WhatsApp: <strong>+880XXXXXXXXXX</strong></p>
       <p>📧 Email: <strong>limitless.tournaments@gmail.com</strong></p>
-      <a class="btn btn-primary" href="#">Facebook Page</a>
+      <a class="btn btn-primary" href="https://www.facebook.com/profile.php?id=61578322031694" target="_blank" rel="noopener noreferrer">Facebook Page</a>
     </section>
 
     <footer>
       &copy; 2025 Limitless Tournaments. All rights reserved.<br />
-      <a href="#" class="text-primary">Facebook</a> |
+      <a href="https://www.facebook.com/profile.php?id=61578322031694" target="_blank" rel="noopener noreferrer" class="text-primary">Facebook</a> |
       <a href="#" class="text-primary">Discord</a>
     </footer>
   </div>
