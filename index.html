@@ -27,125 +27,290 @@
     }
     @keyframes fadeIn {
       to {opacity: 1;}
-     }
-    .dark-mode {
-      --bg-color: #f4f4f4;
-      --text-color: #111;
-      --accent-color: #00b894;
-      --secondary-color: #555;
     }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+
+    body.light-mode {
+      background-color: #e0f7ff;
+      color: #003344;
+      user-select: text;
     }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      transition: background-color 0.3s, color 0.3s;
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0; left: 0;
+      width: 240px;
+      height: 100vh;
+      background-color: #001122;
+      padding-top: 70px;
+      box-shadow: 0 0 2px #00c8e699;
+      z-index: 1000;
+      transition: background-color 0.4s ease;
     }
-    nav {
-      background: #111;
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.6);
+    body.light-mode .sidebar {
+      background-color: #cceeff;
+      box-shadow: 0 0 2px #0077cc99;
     }
-    nav h1 {
-      font-size: 1.8em;
-      color: var(--accent-color);
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-    nav ul li a {
-      color: var(--secondary-color);
+    .sidebar a {
+      display: block;
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #00c8e6;
       text-decoration: none;
-      transition: 0.3s;
-    }
-    nav ul li a:hover {
-      color: var(--accent-color);
-    }
-    .toggle-btn {
-      background: none;
-      border: none;
-      color: var(--accent-color);
-      font-size: 1.2em;
+      text-shadow: 0 0 2px #00c8e6;
+      transition: background-color 0.3s ease, color 0.3s ease;
       cursor: pointer;
     }
-    header {
-      padding: 100px 20px;
-      text-align: center;
-      background: linear-gradient(to bottom, #111, #1a1a1a);
+    .sidebar a:hover,
+    .sidebar a.active {
+      background-color: #00c8e6;
+      color: #000011;
+      text-shadow: none;
     }
-    header h2 {
-      font-size: 3em;
-      color: var(--accent-color);
-      animation: fadeInDown 1s ease;
+    body.light-mode .sidebar a {
+      color: #003344;
+      text-shadow: none;
     }
-    header p {
-      font-size: 1.2em;
-      margin-top: 10px;
-      color: var(--secondary-color);
-      animation: fadeInUp 1s ease;
+    body.light-mode .sidebar a:hover,
+    body.light-mode .sidebar a.active {
+      background-color: #0077cc;
+      color: #e0f7ff;
     }
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
+
+    /* Main Content */
+    .main-content {
+      margin-left: 240px;
+      padding: 40px 50px;
+      min-height: 100vh;
+      transition: background-color 0.4s ease, color 0.4s ease;
+      scroll-margin-top: 70px;
     }
-    h3 {
-      font-size: 2em;
-      margin-bottom: 20px;
-      color: var(--accent-color);
+    body.light-mode .main-content {
+      background-color: #f0fbff;
+      color: #003344;
     }
-    .team-member, .contact-info {
-      margin-bottom: 20px;
-    }
-    a {
-      color: var(--accent-color);
-      text-decoration: none;
-    }
-    footer {
-      background: #111;
-      text-align: center;
-      padding: 20px;
-      color: #777;
-      font-size: 0.9em;
-    }
-    .social-icons a {
-      margin: 0 10px;
-      font-size: 1.2em;
-    }
-    .slider {
+
+    /* Header */
+    header.header {
       display: flex;
-      overflow-x: auto;
-      gap: 20px;
-      scroll-snap-type: x mandatory;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(90deg, #00c8e6 0%, #0080b3 100%);
+      padding: 15px 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 2px #00c8e6aa;
+      margin-bottom: 40px;
+      color: #000011;
+      user-select: none;
     }
-    .slider img {
-      width: 300px;
-      border-radius: 10px;
-      scroll-snap-align: start;
+    body.light-mode header.header {
+      background: linear-gradient(90deg, #0077cc 0%, #004466 100%);
+      color: #e0f7ff;
+      box-shadow: 0 0 2px #0077ccaa;
     }
-    iframe {
-      width: 100%;
-      height: 400px;
+    header.header img.logo {
+      height: 70px;
+      border-radius: 12px;
+      box-shadow: 0 0 2px #00c8e6;
+      transition: box-shadow 0.4s ease;
+      user-select: none;
+    }
+    body.light-mode header.header img.logo {
+      box-shadow: 0 0 6px #0077cc;
+    }
+    header.header h1 {
+      font-size: 2.8rem;
+      letter-spacing: 0.1em;
+      margin: 0 20px;
+      font-weight: 900;
+      text-shadow: 0 0 2px #00c8e6;
+      flex-grow: 1;
+      user-select: text;
+    }
+    body.light-mode header.header h1 {
+      text-shadow: none;
+    }
+    .dark-mode-toggle {
+      font-size: 2rem;
+      color: #00c8e6;
+      cursor: pointer;
+      user-select: none;
+      text-shadow: 0 0 2px #00c8e6;
+      transition: color 0.4s ease, text-shadow 0.4s ease;
+    }
+    body.light-mode .dark-mode-toggle {
+      color: #004466;
+      text-shadow: none;
+    }
+    .dark-mode-toggle:hover {
+      color: #00ffff;
+      text-shadow: 0 0 2px #00ffff;
+    }
+
+    /* Section Titles */
+    section h2 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 25px;
+      text-shadow: 0 0 2px #00c8e6;
+      color: #00c8e6;
+      transition: color 0.4s ease, text-shadow 0.4s ease;
+    }
+    body.light-mode section h2 {
+      color: #004466;
+      text-shadow: none;
+    }
+
+    /* Cards & Content */
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    .card {
+      background-color: #001722;
+      padding: 25px;
+      border-radius: 15px;
+      border-left: 6px solid #00c8e6;
+      box-shadow: 0 0 2px #00c8e6aa;
+      color: #00c8e6;
+      transition: background-color 0.4s ease, color 0.4s ease;
+      user-select: text;
+    }
+    body.light-mode .card {
+      background-color: #ddf3ff;
+      color: #003344;
+      border-left-color: #0077cc;
+      box-shadow: 0 0 2px #0077ccaa;
+    }
+    .card h4 {
+      margin-bottom: 15px;
+      font-weight: 800;
+      text-shadow: 0 0 2px #00c8e6;
+    }
+    body.light-mode .card h4 {
+      color: #004466;
+      text-shadow: none;
+    }
+    .btn-primary {
+      background-color: #00c8e6;
       border: none;
-      border-radius: 10px;
+      font-weight: 700;
+      color: #000011;
+      padding: 10px 22px;
+      box-shadow: 0 0 2px #00c8e6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      user-select: none;
     }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .btn-primary:hover {
+      background-color: #0099b3;
+      color: #e0f7ff;
+      box-shadow: 0 0 2px #0099b3;
     }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    body.light-mode .btn-primary {
+      background-color: #0077cc;
+      color: #e0f7ff;
+      box-shadow: 0 0 2px #0077cc;
     }
+    body.light-mode .btn-primary:hover {
+      background-color: #004466;
+      box-shadow: 0 0 2px #004466;
+    }
+
+    /* Lists */
+    ul {
+      padding-left: 20px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      user-select: text;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 25px 15px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      color: #00c8e6aa;
+      text-shadow: 0 0 2px #00c8e666;
+      margin-top: 50px;
+      transition: color 0.4s ease, text-shadow 0.4s ease;
+      user-select: none;
+    }
+    body.light-mode footer {
+      color: #004466cc;
+      text-shadow: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+      .main-content {
+        margin-left: 0;
+        padding: 25px 15px;
+      }
+      nav.mobile-nav {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #001122;
+        padding: 10px 15px;
+        box-shadow: 0 0 2px #00c8e6aa;
+        color: #00c8e6;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1100;
+        user-select: none;
+      }
+      nav.mobile-nav button {
+        background: none;
+        border: none;
+        font-size: 1.8rem;
+        color: #00c8e6;
+        cursor: pointer;
+        user-select: none;
+      }
+    }
+
+    /* Modal overrides */
+    .modal-content {
+      background-color: #001722;
+      color: #00c8e6;
+      border-radius: 12px;
+      user-select: text;
+    }
+    body.light-mode .modal-content {
+      background-color: #ddf3ff;
+      color: #003344;
+    }
+    .modal-header {
+      border-bottom: none;
+    }
+    .modal-title {
+      font-weight: 900;
+      font-size: 1.5rem;
+      text-shadow: 0 0 2px #00c8e6;
+    }
+    body.light-mode .modal-title {
+      color: #004466;
+      text-shadow: none;
+    }
+    .btn-close {
+      filter: invert(100%);
+    }
+    body.light-mode .btn-close {
+      filter: invert(0%);
+    }
+
   </style>
 </head>
 <body>
@@ -383,7 +548,7 @@
   </script>
 </body>
 </html>
-<section id="contact" style="background: #00c8e6; padding: 80px 20px;">
+<section id="contact" style="background: #0c0c0c; padding: 80px 20px;">
   <h3 style="text-align: center; color: #fff; font-size: 2.5em; text-shadow: 2px 2px #00c8e6; margin-bottom: 40px;">CONTACT ME</h3>
 
   <form id="contact-form" style="
@@ -406,7 +571,7 @@
     <label style="color: #00c8e6; font-weight: 600;">Your message:</label>
     <textarea name="message" placeholder="Type your message here..." rows="5" required style="width: 100%; padding: 12px; margin: 10px 0 30px; border: 2px solid #000c8e6; border-radius: 10px; background: transparent; color: #fff; font-size: 1em; resize: vertical;"></textarea>
 
-    <button type="submit" id="send-btn" style="background: linear-gradient(135deg, #00c8e6, #00c8e6); border: none; padding: 12px 30px; color: #000; font-weight: bold; border-radius: 30px; cursor: pointer; font-size: 1.1em; transition: background 0.3s ease;">Send</button>
+    <button type="submit" id="send-btn" style="background: linear-gradient(135deg, #00c8e6, #00b894); border: none; padding: 12px 30px; color: #000; font-weight: bold; border-radius: 30px; cursor: pointer; font-size: 1.1em; transition: background 0.3s ease;">Send</button>
   </form>
 </section>
 
