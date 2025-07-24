@@ -1,696 +1,535 @@
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
+@ -4,76 +4,134 @@
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Limitless Tournaments</title>
-
-  <!-- Fonts & Icons -->
+  <title>Limitless Tournaments</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
-
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-    /* ====== Base Styles ====== */
-body {
-font-family: 'Orbitron', sans-serif;
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* ---------- GENERAL ---------- */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f2f5;
+      color: #222;
       margin: 0;
+      font-family: 'Orbitron', sans-serif;
       background-color: #000011;
-      color: #00c8e6;
-      background-color: #0e0e0e;
-      color: #f5f5f5;
-scroll-behavior: smooth;
+      color: #00e6ff;
+      scroll-behavior: smooth;
       transition: background-color 0.4s ease, color 0.4s ease;
-      opacity: 0;
-      animation: fadeIn 0.8s forwards;
-      user-select: none;
     }
-    @keyframes fadeIn {
-      to {opacity: 1;}
-    }
-
     body.light-mode {
       background-color: #e0f7ff;
       color: #003344;
-      user-select: text;
-}
-
-    /* Sidebar */
-.sidebar {
+    }
+    /* ---------- SIDEBAR ---------- */
+    .sidebar {
       height: 100vh;
-      background-color: #111;
+      background-color: #4a90e2;
       padding-top: 60px;
-position: fixed;
+      position: fixed;
       top: 0; left: 0;
-width: 240px;
       height: 100vh;
+      width: 240px;
+      top: 0;
+      left: 0;
       background-color: #001122;
-      padding-top: 70px;
-      box-shadow: 0 0 12px #00c8e699;
-      z-index: 1000;
+      padding-top: 60px;
+      box-shadow: 0 0 20px #00e6ff99;
       transition: background-color 0.4s ease;
+      z-index: 999;
     }
     body.light-mode .sidebar {
       background-color: #cceeff;
-      box-shadow: 0 0 12px #0077cc99;
-      top: 0;
-      left: 0;
-      z-index: 999;
-}
-    /* Sidebar links */
-.sidebar a {
+      box-shadow: 0 0 20px #0077cc99;
+    }
+    .sidebar a {
       display: block;
-      padding: 15px 30px;
-      font-size: 1.1rem;
-      font-weight: 700;
-color: #00c8e6;
-      text-shadow: 0 0 2px #00c8e6; /* glow কমানো */
-      display: block;
+      color: #e1e9f0;
       padding: 15px 25px;
-text-decoration: none;
-      text-shadow: 0 0 6px #00c8e6;
+      color: #00e6ff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+      text-shadow: 0 0 5px #00e6ff;
       transition: background-color 0.3s ease, color 0.3s ease;
-      cursor: pointer;
-}
-.sidebar a:hover,
-.sidebar a.active {
-background-color: #00c8e6;
-color: #000011;
+    }
+    .sidebar a:hover,
+    .sidebar a.active {
+      background-color: #f39c12;
+      color: #fff;
+      background-color: #00e6ff;
+      color: #000011;
       text-shadow: none;
+      font-weight: 700;
     }
     body.light-mode .sidebar a {
       color: #003344;
       text-shadow: none;
-      text-shadow: none; /* hover এ glow রাখা হবে না */
-}
+    }
     body.light-mode .sidebar a:hover,
     body.light-mode .sidebar a.active {
       background-color: #0077cc;
       color: #e0f7ff;
     }
 
-    /* Main Content */
-.main-content {
-margin-left: 240px;
-      padding: 40px 50px;
-      min-height: 100vh;
-      transition: background-color 0.4s ease, color 0.4s ease;
-      scroll-margin-top: 70px;
+    /* ---------- MAIN CONTENT ---------- */
+    .main-content {
+      margin-left: 240px;
       padding: 30px;
-}
+      background-color: #fff;
+      min-height: 100vh;
+      box-shadow: inset 0 0 10px #ccc;
+      border-radius: 0 15px 15px 0;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
     body.light-mode .main-content {
-      background-color: #f0fbff;
       color: #003344;
+      background-color: #f0fbff;
     }
-
-/* Header */
-    header.header {
+    /* ---------- HEADER ---------- */
+    .header {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      background: linear-gradient(90deg, #00c8e6 0%, #0080b3 100%);
+      align-items: center;
+      gap: 15px;
+      background: linear-gradient(90deg, #4a90e2, #f39c12);
+      padding: 20px 30px;
+      border-radius: 15px;
+      color: #fff;
+      box-shadow: 0 0 10px #d6a43a;
+      margin-bottom: 30px;
+      background: linear-gradient(90deg, #00e6ff 0%, #0088cc 100%);
       padding: 15px 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px #00c8e6aa;
-      margin-bottom: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #00e6ff99;
       color: #000011;
-      user-select: none;
+      transition: background 0.4s ease, color 0.4s ease;
     }
-    body.light-mode header.header {
+    body.light-mode .header {
       background: linear-gradient(90deg, #0077cc 0%, #004466 100%);
       color: #e0f7ff;
-      box-shadow: 0 0 15px #0077ccaa;
-    header.header, .header {
-      background-color: #1a1a1a;
-      padding: 20px;
-      text-align: center;
-      border-bottom: 1px solid #333;
-      box-shadow: 0 0 5px #00c8e633; /* glow কমানো */
-}
-header.header img.logo {
-      height: 70px;
-      border-radius: 12px;
-      box-shadow: 0 0 8px #00c8e6;
+      box-shadow: 0 0 15px #0077cc99;
+    }
+    .header img.logo {
+      height: 60px;
+      width: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 8px #fff7cc;
+      box-shadow: 0 0 10px #00e6ff;
       transition: box-shadow 0.4s ease;
-      user-select: none;
     }
-    body.light-mode header.header img.logo {
-      box-shadow: 0 0 8px #0077cc;
-    }
-    header.header h1 {
+    .header h1 {
+      font-weight: 700;
       font-size: 2.8rem;
-      letter-spacing: 0.1em;
-      margin: 0 20px;
-      font-weight: 900;
-      text-shadow: 0 0 8px #00c8e6;
-      flex-grow: 1;
-      user-select: text;
-      box-shadow: 0 0 2px #00c8e6; /* glow কমানো */
-}
-    body.light-mode header.header h1 {
-      text-shadow: none;
-    header.header h1, .header h1 {
-      color: #00c8e6;
-      text-shadow: 0 0 2px #00c8e6; /* glow কমানো */
-      font-size: 2.5rem;
       margin: 0;
-}
-    /* Dark mode toggle icon */
-.dark-mode-toggle {
+    }
+    .header p {
+      font-size: 1.2rem;
+      font-weight: 500;
+      font-size: 2.5rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      margin: 0;
+      margin: 0 20px;
+      text-shadow: 0 0 10px #00e6ff;
+    }
+    /* ---------- DARK MODE TOGGLE ---------- */
+    .dark-mode-toggle {
+      cursor: pointer;
       font-size: 2rem;
-      color: #00c8e6;
-cursor: pointer;
+      color: #00e6ff;
       user-select: none;
-      text-shadow: 0 0 8px #00c8e6;
+      text-shadow: 0 0 10px #00e6ff;
       transition: color 0.4s ease, text-shadow 0.4s ease;
     }
     body.light-mode .dark-mode-toggle {
       color: #004466;
       text-shadow: none;
-      text-shadow: 0 0 2px #00c8e6; /* glow কমানো */
-      font-size: 1.5rem;
-      position: fixed;
-      top: 15px;
-      right: 20px;
-      color: #00c8e6;
-      z-index: 1000;
-}
-.dark-mode-toggle:hover {
+    }
+    .dark-mode-toggle:hover {
       color: #00ffff;
-      text-shadow: 0 0 12px #00ffff;
-      text-shadow: 0 0 3px #00ffff; /* হালকা glow */
-}
-
-    /* Section Titles */
-    /* Section titles */
-section h2 {
-      font-size: 2.5rem;
-      font-weight: 900;
-      margin-bottom: 25px;
-      text-shadow: 0 0 8px #00c8e6;
-      color: #00c8e6;
-      transition: color 0.4s ease, text-shadow 0.4s ease;
+      text-shadow: 0 0 20px #00ffff;
     }
-    body.light-mode section h2 {
-      color: #004466;
-      text-shadow: none;
+    /* ---------- CAROUSEL ---------- */
+    #carouselExample .carousel-inner img {
+      border-radius: 12px;
+      box-shadow: 0 0 25px #00e6ff99;
+      transition: box-shadow 0.4s ease;
     }
-
-    /* Cards & Content */
+    body.light-mode #carouselExample .carousel-inner img {
+      box-shadow: 0 0 20px #0077cc99;
+    }
+    /* ---------- DASHBOARD CARDS ---------- */
     .dashboard {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
+@ -81,52 +139,98 @@
+      margin-top: 20px;
     }
     .card {
-      background-color: #001722;
+      background-color: #f9f9f9;
+      background-color: #001a33;
+      border-left: 6px solid #00e6ff;
       padding: 25px;
       border-radius: 15px;
-      border-left: 6px solid #00c8e6;
-      box-shadow: 0 0 12px #00c8e6aa;
-color: #00c8e6;
-      transition: background-color 0.4s ease, color 0.4s ease;
-      user-select: text;
+      border-left: 6px solid #f39c12;
+      box-shadow: 0 4px 10px rgb(243 156 18 / 0.3);
+      transition: box-shadow 0.3s ease;
+      color: #333;
+      box-shadow: 0 0 15px #00e6ff99;
+      color: #00e6ff;
+      transition: box-shadow 0.3s ease, background-color 0.4s ease, color 0.4s ease;
     }
+    .card:hover {
+      box-shadow: 0 8px 20px rgb(243 156 18 / 0.6);
     body.light-mode .card {
       background-color: #ddf3ff;
       color: #003344;
       border-left-color: #0077cc;
-      box-shadow: 0 0 10px #0077ccaa;
-      text-shadow: 0 0 2px #00c8e6; /* glow কমানো */
-      margin-bottom: 20px;
-}
-    /* Card headings */
-.card h4 {
-      margin-bottom: 15px;
-      font-weight: 800;
-      text-shadow: 0 0 8px #00c8e6;
-      color: #00c8e6;
-      text-shadow: 0 0 2px #00c8e6; /* glow কমানো */
-}
-    body.light-mode .card h4 {
-      color: #004466;
-      text-shadow: none;
-    /* Cards */
-    .card {
-      background-color: #1f1f1f;
-      padding: 20px;
-      border-radius: 10px;
-      border-left: 4px solid #00c8e6;
-      box-shadow: 0 0 3px #00c8e655; /* glow কমানো */
-}
-    /* Buttons */
-.btn-primary {
-background-color: #00c8e6;
-border: none;
+      box-shadow: 0 0 10px #0077cc99;
+    }
+    .card h4 {
+      color: #4a90e2;
       font-weight: 700;
+      text-shadow: 0 0 10px #00e6ff;
+      margin-bottom: 15px;
+    }
+    body.light-mode .card h4 {
+      text-shadow: none;
+      color: #004466;
+    }
+    .btn-primary {
+      background-color: #f39c12;
+      background-color: #00e6ff;
+      border: none;
+      font-weight: 600;
+      font-weight: 700;
+      padding: 10px 20px;
+      transition: background-color 0.3s ease;
       color: #000011;
-      padding: 10px 22px;
-      box-shadow: 0 0 10px #00c8e6;
+      box-shadow: 0 0 10px #00e6ff;
       transition: background-color 0.3s ease, color 0.3s ease;
-      user-select: none;
-      box-shadow: 0 0 3px #00c8e6; /* glow কমানো */
-}
-.btn-primary:hover {
-background-color: #0099b3;
+    }
+    .btn-primary:hover {
+      background-color: #d17f0a;
+      background-color: #00b8cc;
       color: #e0f7ff;
-      box-shadow: 0 0 15px #0099b3;
+      box-shadow: 0 0 15px #00b8cc;
     }
     body.light-mode .btn-primary {
-      background-color: #0077cc;
       color: #e0f7ff;
+      background-color: #0077cc;
       box-shadow: 0 0 10px #0077cc;
     }
     body.light-mode .btn-primary:hover {
       background-color: #004466;
       box-shadow: 0 0 15px #004466;
     }
-
-    /* Lists */
+    /* ---------- SECTIONS ---------- */
+    section h2 {
+      text-shadow: 0 0 10px #00e6ff;
+      font-weight: 800;
+      margin-bottom: 15px;
+      color: #00e6ff;
+      transition: color 0.4s ease, text-shadow 0.4s ease;
+    }
+    body.light-mode section h2 {
+      color: #004466;
+      text-shadow: none;
+    }
+    section p, section li {
+      line-height: 1.6;
+      color: inherit;
+      font-weight: 500;
+    }
     ul {
       padding-left: 20px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      user-select: text;
     }
-    ul li {
-      margin-bottom: 10px;
-      box-shadow: 0 0 5px #0099b3; /* হালকা glow */
-}
-
-/* Footer */
-footer {
-text-align: center;
+    /* ---------- FOOTER ---------- */
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #666;
+      margin-top: 50px;
+      font-weight: 500;
       padding: 25px 15px;
       font-weight: 600;
       font-size: 0.9rem;
       letter-spacing: 0.05em;
-      color: #00c8e6aa;
-      text-shadow: 0 0 5px #00c8e666;
-      padding: 20px;
-      color: #00c8e66;
-margin-top: 50px;
+      color: #00e6ffaa;
+      text-shadow: 0 0 8px #00e6ff66;
       transition: color 0.4s ease, text-shadow 0.4s ease;
-      user-select: none;
-      text-shadow: 0 0 2px #00c8e633; /* glow কমানো */
-}
+    }
     body.light-mode footer {
       color: #004466cc;
       text-shadow: none;
-    /* Modal Title */
-    .modal-title {
-      text-shadow: 0 0 2px #00c8e6; /* glow কমানো */
-}
-
-    /* Responsive */
+    }
     /* Mobile sidebar */
-@media (max-width: 768px) {
-.sidebar {
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      .sidebar {
         width: 100%;
+        height: auto;
         position: relative;
-display: none;
-}
-.main-content {
-margin-left: 0;
-        padding: 25px 15px;
+        display: none;
       }
-      nav.mobile-nav {
-        display: flex !important;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #001122;
-        padding: 10px 15px;
-        box-shadow: 0 0 12px #00c8e6aa;
-        color: #00c8e6;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1100;
-        user-select: none;
+      .main-content {
+        margin-left: 0;
+        padding: 20px;
+        border-radius: 0;
+        box-shadow: none;
       }
-      nav.mobile-nav button {
-        background: none;
-        border: none;
-        font-size: 1.8rem;
-        color: #00c8e6;
-        cursor: pointer;
-        user-select: none;
-}
-}
-
-    /* Modal overrides */
-    .modal-content {
-      background-color: #001722;
-      color: #00c8e6;
-      border-radius: 12px;
-      user-select: text;
-    }
-    body.light-mode .modal-content {
-      background-color: #ddf3ff;
-      color: #003344;
-    }
-    .modal-header {
-      border-bottom: none;
-    }
-    .modal-title {
-      font-weight: 900;
-      font-size: 1.5rem;
-      text-shadow: 0 0 8px #00c8e6;
-    }
-    body.light-mode .modal-title {
-      color: #004466;
-      text-shadow: none;
-    }
-    .btn-close {
-      filter: invert(100%);
-    }
-    body.light-mode .btn-close {
-      filter: invert(0%);
-    }
-
-</style>
+      nav.d-md-none {
+        display: block !important;
+@ -136,55 +240,76 @@
 </head>
 <body>
 
-  <!-- Mobile Nav -->
-  <nav class="mobile-nav d-md-none">
-    <div>Limitless Tournaments</div>
-    <button id="mobileMenuBtn" aria-label="Toggle Menu"><i class="fas fa-bars"></i></button>
-  <!-- Dark mode toggle -->
-  <div class="dark-mode-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">
-    <i class="fas fa-moon"></i>
+  <!-- Mobile Navbar Toggle -->
+  <nav class="d-md-none bg-primary text-white p-2">
+    <button class="btn btn-sm btn-warning" onclick="toggleSidebar()">☰ Menu</button>
+  <!-- MOBILE NAVBAR TOGGLE -->
+  <nav class="d-md-none bg-dark text-blue p-2" style="background:#001122;">
+    <button class="btn btn-sm btn-outline-info" onclick="toggleSidebar()">☰ Menu</button>
+  </nav>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+  <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+    <a href="#home" class="active"><i class="fas fa-home"></i> Home</a>
+    <a href="#about"><i class="fas fa-info-circle"></i> About Us</a>
+    <a href="#tournaments"><i class="fas fa-trophy"></i> Tournaments</a>
+    <a href="#winners"><i class="fas fa-medal"></i> Winners</a>
+    <a href="#rules"><i class="fas fa-gavel"></i> Rules</a>
+    <a href="#leaderboard"><i class="fas fa-chart-line"></i> Leaderboard</a>
+    <a href="#testimonials"><i class="fas fa-comments"></i> Testimonials</a>
+    <a href="#news"><i class="fas fa-newspaper"></i> News & Updates</a>
+    <a href="#gallery"><i class="fas fa-image"></i> Gallery</a>
+    <a href="#sponsors"><i class="fas fa-handshake"></i> Sponsors</a>
+    <a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a>
+    <a href="#rulesdownload"><i class="fas fa-file-download"></i> Rules Download</a>
+    <a href="#livestream"><i class="fas fa-video"></i> Live Stream</a>
+    <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
   </div>
 
-  <!-- Mobile Navbar Toggle -->
-  <nav class="d-md-none bg-dark text-white p-2">
-    <button class="btn btn-sm btn-primary" onclick="toggleSidebar()">☰ Menu</button>
-</nav>
-
-<!-- Sidebar -->
-  <div class="sidebar" id="sidebar">
-  <div class="sidebar">
-<a href="#home" class="active"><i class="fas fa-home"></i> Home</a>
-<a href="#tournaments"><i class="fas fa-trophy"></i> Tournaments</a>
-<a href="#winners"><i class="fas fa-medal"></i> Winners</a>
-<a href="#rules"><i class="fas fa-gavel"></i> Rules</a>
-    <a href="#about"><i class="fas fa-info-circle"></i> About</a>
-    <a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a>
-    <a href="#sponsors"><i class="fas fa-handshake"></i> Sponsors</a>
-<a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
-</div>
-
-  <!-- Main content -->
   <!-- Main Content -->
-<div class="main-content">
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
 
-    <!-- Header -->
-    <header class="header">
-      <img src="https://i.postimg.cc/F7Gzg5g1/limitless-logo.png" alt="Limitless Logo" class="logo" />
-    <div class="header" id="home">
-<h1>Limitless Tournaments</h1>
+    <header class="header" id="home">
+      <img src="https://i.postimg.cc/F7Gzg5g1/limitless-logo.png" alt="Limitless Tournaments Logo" class="logo" />
+      <div>
+        <h1>Limitless Tournaments</h1>
+        <p>Daily Scrims | Blast Tournaments | Giveaway Tours | Premium Banners</p>
+      </div>
       <div class="dark-mode-toggle" id="darkModeToggle" title="Toggle Dark Mode" role="button" aria-label="Toggle Dark Mode">
         <i class="fas fa-moon"></i>
       </div>
     </header>
 
-    <!-- Home -->
-    <section id="home" style="margin-bottom: 80px;">
-      <h2>Welcome to Limitless Tournaments</h2>
-<p>Daily Scrims | Blast Tournaments | Giveaway Tours | Premium Banners</p>
-      <div id="carouselExample" class="carousel slide mt-4" data-bs-ride="carousel" style="border-radius:12px; overflow:hidden;">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="https://via.placeholder.com/1200x300/000022/00c8e6?text=🔥+Free+Fire+Tournaments" class="d-block w-100" alt="Banner 1" />
-          </div>
-          <div class="carousel-item">
-            <img src="https://via.placeholder.com/1200x300/001144/00c8e6?text=🏆+Win+Diamonds+Daily" class="d-block w-100" alt="Banner 2" />
-          </div>
-    </div>
-
     <!-- Hero Banner -->
+    <div id="carouselExample" class="carousel slide rounded" data-bs-ride="carousel" style="box-shadow: 0 0 20px #f39c12;">
+    <!-- CAROUSEL -->
     <div id="carouselExample" class="carousel slide mt-3" data-bs-ride="carousel">
       <div class="carousel-inner rounded">
         <div class="carousel-item active">
-          <img src="https://via.placeholder.com/1200x300/111111/00c8e6?text=🔥+Free+Fire+Tournaments" class="d-block w-100" alt="Banner">
+          <img src="https://via.placeholder.com/1200x300/4a90e2/f39c12?text=🔥+Free+Fire+Tournaments" class="d-block w-100 rounded" alt="Banner" />
+          <img src="https://via.placeholder.com/1200x300/001122/00e6ff?text=🔥+Free+Fire+Tournaments" class="d-block w-100" alt="Banner" />
         </div>
         <div class="carousel-item">
-          <img src="https://via.placeholder.com/1200x300/222222/00c8e6?text=🏆+Win+Diamonds+Daily" class="d-block w-100" alt="Banner">
-</div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-</div>
-    </section>
+          <img src="https://via.placeholder.com/1200x300/f39c12/4a90e2?text=🏆+Win+Diamonds+Daily" class="d-block w-100 rounded" alt="Banner" />
+          <img src="https://via.placeholder.com/1200x300/002244/00e6ff?text=🏆+Win+Diamonds+Daily" class="d-block w-100" alt="Banner" />
+        </div>
+      </div>
     </div>
 
-<!-- Tournaments -->
-    <section id="tournaments" style="margin-bottom: 80px;">
-      <h2>Tournaments</h2>
-    <section id="tournaments">
-      <h2>Upcoming Tournaments</h2>
-<div class="dashboard">
-<div class="card">
-<h4><i class="fas fa-fire text-warning"></i> Free Fire Solo Blast</h4>
-@@ -388,31 +187,24 @@ <h4><i class="fas fa-users text-info"></i> Squad Scrim Friday</h4>
-<a class="btn btn-primary" href="#">Join Scrim</a>
-</div>
-<div class="card">
-          <h4><i class="fas fa-shield-alt text-success"></i> Clash Squad Tournament</h4>
-          <p><strong>Date:</strong> August 10, 2025</p>
-          <p><strong>Entry Fee:</strong> 250 Taka</p>
-          <p><strong>Prize:</strong> 5000 Diamonds + Cash</p>
-          <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Register Now</a>
-        </div>
-        <div class="card">
-          <h4><i class="fas fa-bolt text-danger"></i> Blast Tournament</h4>
-          <p><strong>Date:</strong> August 5, 2025</p>
-          <p><strong>Entry Fee:</strong> 100 Taka</p>
-          <p><strong>Prize:</strong> Special Skins + Diamonds</p>
-          <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Register Now</a>
-          <h4><i class="fas fa-shield-alt text-success"></i> Clash Squad</h4>
-          <p><strong>Date:</strong> Every Saturday</p>
-          <p><strong>Entry Fee:</strong> 250 BDT</p>
-          <p><strong>Prize:</strong> 5000 Diamonds</p>
-          <a class="btn btn-primary" href="#">Register Now</a>
-</div>
-<div class="card">
-          <h4><i class="fas fa-fist-raised text-primary"></i> Weekly Scrims</h4>
-          <p><strong>Date:</strong> Every Saturday</p>
-          <p><strong>Entry Fee:</strong> Free</p>
-          <p><strong>Prize:</strong> Discord Role + XP Points</p>
-          <a class="btn btn-primary" href="#">Join Scrim</a>
-          <h4><i class="fas fa-bolt text-danger"></i> Blast Tournaments</h4>
-          <p><strong>Date:</strong> Monthly</p>
-          <p><strong>Entry Fee:</strong> 500 BDT</p>
-          <p><strong>Prize:</strong> 15000 Diamonds</p>
-          <a class="btn btn-primary" href="#">Register Now</a>
-</div>
-</div>
-</section>
-
-<!-- Winners -->
-    <section id="winners" style="margin-bottom: 80px;">
-    <section id="winners" class="mt-5">
-<h2>Champions Gallery</h2>
-<ul>
-<li>🏆 Team X - Blast Cup Champions</li>
-@@ -422,7 +214,7 @@ <h2>Champions Gallery</h2>
-</section>
-
-<!-- Rules -->
-    <section id="rules" style="margin-bottom: 80px;">
-    <section id="rules" class="mt-5">
-<h2>Rules</h2>
-<ul>
-<li>No cheating, hacks or exploits allowed</li>
-@@ -432,119 +224,94 @@ <h2>Rules</h2>
-</ul>
-</section>
-
-    <!-- About -->
-    <section id="about" style="margin-bottom: 80px;">
-      <h2>About Limitless</h2>
+    <!-- Tournaments -->
+    <section id="tournaments" class="mt-4">
+      <h2 class="text-primary fw-bold">Upcoming Tournaments</h2>
+    <!-- ABOUT -->
+    <section id="about" class="mt-5">
+      <h2>About Us</h2>
       <p>
-        Limitless Tournaments is the premier platform for Free Fire competitive gaming. Join daily scrims, exciting blast tournaments, and win amazing prizes!
+        Limitless Tournaments is dedicated to bringing the best competitive gaming experience. We organize daily scrims, blast tournaments, and exciting giveaways to keep the community active and engaged.
       </p>
     </section>
 
+    <!-- TOURNAMENTS -->
+    <section id="tournaments" class="mt-5">
+      <h2>Upcoming Tournaments</h2>
+      <div class="dashboard">
+        <div class="card">
+          <h4><i class="fas fa-fire text-warning"></i> Free Fire Solo Blast</h4>
+          <h4><i class="fas fa-fire"></i> Free Fire Solo Blast</h4>
+          <p><strong>Date:</strong> July 25, 2025</p>
+          <p><strong>Entry Fee:</strong> Free</p>
+          <p><strong>Prize:</strong> 1000 Diamonds</p>
+          <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Register Now</a>
+        </div>
+        <div class="card">
+          <h4><i class="fas fa-users text-info"></i> Squad Scrim Friday</h4>
+          <h4><i class="fas fa-users"></i> Squad Scrim Friday</h4>
+          <p><strong>Date:</strong> Every Friday</p>
+          <p><strong>Entry Fee:</strong> Free</p>
+          <p><strong>Prize:</strong> Discord Role</p>
+@ -193,28 +318,19 @@
+      </div>
+    </section>
+
+    <!-- Winners -->
+    <!-- WINNERS -->
+    <section id="winners" class="mt-5">
+      <h2 class="text-primary fw-bold">Champions Gallery</h2>
+      <div class="dashboard">
+        <div class="card">
+          <h4>🏆 Team X</h4>
+          <p>Blast Cup Champions</p>
+        </div>
+        <div class="card">
+          <h4>🥇 Solo King</h4>
+          <p>Scrim MVP</p>
+        </div>
+        <div class="card">
+          <h4>🔥 Squad Omega</h4>
+          <p>Invitational Winners</p>
+        </div>
+      </div>
+      <h2>Champions Gallery</h2>
+      <ul>
+        <li>🏆 Team X - Blast Cup Champions</li>
+        <li>🥇 Solo King - Scrim MVP</li>
+        <li>🔥 Squad Omega - Invitational Winners</li>
+      </ul>
+    </section>
+
+    <!-- Rules -->
+    <!-- RULES -->
+    <section id="rules" class="mt-5">
+      <h2 class="text-primary fw-bold">Rules</h2>
+      <h2>Rules</h2>
+      <ul>
+        <li>No cheating, hacks or exploits allowed</li>
+        <li>Respect admins and fellow players</li>
+@ -223,60 +339,72 @@
+      </ul>
+    </section>
+
+    <!-- Contact -->
+    <!-- LEADERBOARD -->
+    <section id="leaderboard" class="mt-5">
+      <h2>Leaderboard</h2>
+      <p>Top players and teams ranking updated after every tournament.</p>
+      <!-- Add leaderboard table or content here -->
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="mt-5">
+      <h2>Testimonials</h2>
+      <p>"Limitless Tournaments gave me the best competitive experience!" - Player1</p>
+      <p>"Great community and organization." - Player2</p>
+    </section>
+
+    <!-- NEWS & UPDATES -->
+    <section id="news" class="mt-5">
+      <h2>News & Updates</h2>
+      <p>Stay tuned for upcoming tournaments and announcements.</p>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="mt-5">
+      <h2>Gallery</h2>
+      <p>Photos and highlights from past events.</p>
+    </section>
+
+    <!-- SPONSORS -->
+    <section id="sponsors" class="mt-5">
+      <h2>Sponsors</h2>
+      <p>Thanks to our generous sponsors for making events possible.</p>
+    </section>
+
     <!-- FAQ -->
-    <section id="faq" style="margin-bottom: 80px;">
+    <section id="faq" class="mt-5">
       <h2>FAQ</h2>
-      <ul>
-        <li><strong>Q:</strong> How to join a tournament?<br/><strong>A:</strong> Click register and follow instructions.</li>
-        <li><strong>Q:</strong> What is the entry fee?<br/><strong>A:</strong> Entry fees vary per tournament, mostly free or 250 Taka.</li>
-        <li><strong>Q:</strong> Where to find winners list?<br/><strong>A:</strong> Check Champions Gallery section.</li>
-      </ul>
+      <p>Common questions answered for participants.</p>
     </section>
 
-    <!-- Sponsors -->
-    <section id="sponsors" style="margin-bottom: 80px;">
-      <h2>Our Sponsors</h2>
-      <p>We are proud to be supported by:</p>
-      <ul>
-        <li>XYZ Gaming</li>
-        <li>ABC Tech</li>
-        <li>Free Fire Community Bangladesh</li>
-      </ul>
+    <!-- RULES DOWNLOAD -->
+    <section id="rulesdownload" class="mt-5">
+      <h2>Rules Download</h2>
+      <p>Download full tournament rules <a href="#" class="text-info">here</a>.</p>
     </section>
 
-<!-- Contact -->
-    <section id="contact" style="margin-bottom: 80px;">
-      <h2>Contact Us</h2>
-      <p>For queries and support, contact us:</p>
-      <ul>
-        <li>Email: support@limitlesstournaments.com</li>
-        <li>Phone: +880123456789</li>
-        <li>Facebook: <a href="https://www.facebook.com/profile.php?id=61578322031694" target="_blank" style="color:#00c8e6; text-decoration:none;">Limitless Facebook Page</a></li>
-      </ul>
+    <!-- LIVE STREAM -->
+    <section id="livestream" class="mt-5">
+      <h2>Live Stream</h2>
+      <p>Watch the latest tournaments live on our <a href="#" class="text-info">YouTube channel</a>.</p>
+    </section>
+
+    <!-- CONTACT -->
     <section id="contact" class="mt-5">
+      <h2 class="text-primary fw-bold">Contact & Support</h2>
       <h2>Contact & Support</h2>
       <p>📱 WhatsApp: <strong>+880XXXXXXXXXX</strong></p>
       <p>📧 Email: <strong>limitless.tournaments@gmail.com</strong></p>
       <a class="btn btn-primary" href="https://www.facebook.com/profile.php?id=61578322031694" target="_blank" rel="noopener noreferrer">Facebook Page</a>
-</section>
+      <p>🔗 Facebook Page: <a href="https://www.facebook.com/profile.php?id=61578322031694" target="_blank" rel="noopener" class="text-info">Limitless Tournaments</a></p>
+    </section>
 
-<footer>
-      &copy; 2025 Limitless Tournaments. All rights reserved.
-      &copy; 2025 Limitless Tournaments. All rights reserved. <br/>
-      <a href="https://www.facebook.com/profile.php?id=61578322031694" class="text-primary" target="_blank" rel="noopener noreferrer">Facebook</a> | 
+    <footer>
+      &copy; 2025 Limitless Tournaments. All rights reserved.<br />
+      <a href="https://www.facebook.com/profile.php?id=61578322031694" target="_blank" rel="noopener noreferrer" class="text-primary">Facebook</a> |
       <a href="#" class="text-primary">Discord</a>
-</footer>
-</div>
+      &copy; 2025 Limitless Tournaments. All rights reserved.
+    </footer>
+  </div>
 
-  <!-- Register Modal -->
-  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
   <!-- Registration Modal -->
   <div class="modal fade" id="registerModal" tabindex="-1">
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content bg-dark text-white">
-<div class="modal-header">
-          <h5 class="modal-title" id="registerModalLabel">Tournament Registration</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-white">
           <h5 class="modal-title">Register for Tournament</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-</div>
-<div class="modal-body">
-          <p>Registration form will be available soon.</p>
-          <p>Contact us via Facebook for more details.</p>
-          <a href="https://www.facebook.com/profile.php?id=61578322031694" target="_blank" class="btn btn-primary">Facebook Page</a>
+        </div>
+        <div class="modal-body">
           <form>
             <div class="mb-3">
               <label class="form-label">In-Game Name</label>
-              <input type="text" class="form-control" required>
+              <input type="text" class="form-control" required />
             </div>
             <div class="mb-3">
               <label class="form-label">Free Fire UID</label>
-              <input type="number" class="form-control" required>
+              <input type="number" class="form-control" required />
             </div>
             <div class="mb-3">
               <label class="form-label">Contact Number</label>
-              <input type="tel" class="form-control">
+              <input type="tel" class="form-control" />
             </div>
-            <button type="submit" class="btn btn-primary">Submit Registration</button>
+            <button type="submit" class="btn btn-primary w-100">Submit Registration</button>
           </form>
-</div>
-</div>
-</div>
-</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <!-- Bootstrap JS Bundle -->
-  <!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
     function toggleSidebar() {
       const sidebar = document.querySelector('.sidebar');
-      sidebar.style.display = sidebar.style.display === 'block' ? 'none' : 'block';
-    }
-
-// Dark Mode Toggle
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    darkModeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('light-mode');
-      const icon = darkModeToggle.querySelector('i');
-      if(document.body.classList.contains('light-mode')){
-        icon.classList.replace('fa-moon', 'fa-sun');
-    function toggleDarkMode() {
-      const body = document.body;
-      body.classList.toggle('dark-mode');
-
-      // Toggle icon
-      const icon = document.querySelector('.dark-mode-toggle i');
-      if(body.classList.contains('dark-mode')) {
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-} else {
-        icon.classList.replace('fa-sun', 'fa-moon');
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
-}
-    });
-    }
-
-    // Sidebar link active & smooth scroll highlight
-    // Optional: Smooth scroll active link highlight (for sidebar)
-    const sections = document.querySelectorAll('section, .header');
-const sidebarLinks = document.querySelectorAll('.sidebar a');
-    function setActiveLink() {
-      let scrollPos = window.scrollY + 80;
-      sidebarLinks.forEach(link => {
-        const section = document.querySelector(link.getAttribute('href'));
-        if(section){
-          if(scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight){
-            sidebarLinks.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
-          }
-
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 60;
-        if(pageYOffset >= sectionTop) {
-          current = section.getAttribute('id') || 'home';
-}
-});
-    }
-    window.addEventListener('scroll', setActiveLink);
-
-    // Mobile menu toggle
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const sidebar = document.getElementById('sidebar');
-    mobileMenuBtn.addEventListener('click', () => {
-      if(sidebar.style.display === 'block'){
+      if (sidebar.style.display === 'block') {
         sidebar.style.display = 'none';
       } else {
         sidebar.style.display = 'block';
       }
-    });
-
-    // Close sidebar on link click (mobile)
-    sidebarLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if(window.innerWidth <= 768){
-          sidebar.style.display = 'none';
-      sidebarLinks.forEach(link => {
-        link.classList.remove('active');
-        if(link.getAttribute('href') === '#' + current) {
-          link.classList.add('active');
-}
-});
-});
-</script>
+    }
+  </script>
 </body>
 </html>
+      <div class="modal-content" style="background:#001122; color:#00e6ff;">
+        <div class="modal-header">
+          <
