@@ -6,13 +6,13 @@
   <title>Limitless Tournaments</title>
 
   <!-- Fonts & Icons -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
 
- <style>
+  <style>
     /* ====== Base Styles ====== */
     body {
       font-family: 'Orbitron', sans-serif;
@@ -103,6 +103,7 @@
       margin-bottom: 40px;
       color: #000011;
       user-select: none;
+      margin-top: 40px; /* ===== Moved header bar down ===== */
     }
     body.light-mode header.header {
       background: linear-gradient(90deg, #0077cc 0%, #004466 100%);
@@ -132,6 +133,11 @@
       text-shadow: none;
     }
 
+    /* ===== Extra space below header bar ===== */
+    .header-space {
+      height: 30px;
+    }
+
     /* Dark mode toggle */
     .dark-mode-toggle {
       position: relative;
@@ -141,23 +147,23 @@
       padding: 6px 10px;
       border-radius: 6px;
       transition: background-color 0.4s ease;
-      background-color: transparent;  /* Removed green background */
+      background-color: transparent;
       display: flex;
       align-items: center;
       justify-content: center;
     }
     .dark-mode-toggle i {
       transition: color 0.4s ease;
-      color: black; /* icon color in dark mode */
+      color: black;
     }
     body.light-mode .dark-mode-toggle {
-      background-color: transparent; /* Removed green background */
+      background-color: transparent;
     }
     body.light-mode .dark-mode-toggle i {
       color: white;
     }
     .dark-mode-toggle:hover {
-      background-color: transparent; /* Removed green hover */
+      background-color: transparent;
     }
 
     /* Section Titles */
@@ -291,6 +297,12 @@
         cursor: pointer;
         user-select: none;
       }
+      .header-space {
+        height: 20px;
+      }
+      header.header {
+        margin-top: 55px; /* move header a bit lower for mobile */
+      }
     }
 
     /* Modal overrides */
@@ -347,7 +359,7 @@
   <!-- Main content -->
   <div class="main-content">
 
-    <!-- Header -->
+    <!-- Header moved down + add extra space below header -->
     <header class="header">
       <img src="https://i.postimg.cc/F7Gzg5g1/limitless-logo.png" alt="Limitless Logo" class="logo" />
       <h1>Limitless Tournaments</h1>
@@ -355,6 +367,7 @@
         <i class="fas fa-moon"></i>
       </div>
     </header>
+    <div class="header-space"></div>
 
     <!-- Home -->
     <section id="home" style="margin-bottom: 80px;">
@@ -363,10 +376,6 @@
       <div id="carouselExample" class="carousel slide mt-4" data-bs-ride="carousel" style="border-radius:12px; overflow:hidden;">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="https://postimg.cc/PCSjG4Vq=🔥+Free+Fire+Tournaments" class="d-block w-100" alt="Banner 1" />
-          </div>
-          <div class="carousel-item">
-            <img src="https://postimg.cc/PCSjG4Vq/1200x300/001144/00c8e6?text=🏆+Win+Diamonds+Daily" class="d-block w-100" alt="Banner 2" />
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -380,48 +389,46 @@
       </div>
     </section>
 
-    <!-- Tournaments -->
-    <section id="tournaments" style="margin-bottom: 80px;">
-      <h2>Tournaments</h2>
-      <div class="dashboard">
-        <div class="card">
-          <h4><i class="fas fa-fire text-warning"></i> Free Fire Solo Blast</h4>
-          <p><strong>Date:</strong> July 25, 2025</p>
-          <p><strong>Entry Fee:</strong> Free</p>
-          <p><strong>Prize:</strong> 1000 Diamonds</p>
-          <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Register Now</a>
-        </div>
-        <div class="card">
-          <h4><i class="fas fa-users text-info"></i> Squad Scrim Friday</h4>
-          <p><strong>Date:</strong> Every Friday</p>
-          <p><strong>Entry Fee:</strong> Free</p>
-          <p><strong>Prize:</strong> Discord Role</p>
-          <a class="btn btn-primary" href="#">Join Scrim</a>
-        </div>
-        <div class="card">
-          <h4><i class="fas fa-shield-alt text-success"></i> Clash Squad Tournament</h4>
-          <p><strong>Date:</strong> August 10, 2025</p>
-          <p><strong>Entry Fee:</strong> 250 Taka</p>
-          <p><strong>Prize:</strong> 5000 Diamonds + Cash</p>
-          <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Register Now</a>
-        </div>
-        <div class="card">
-          <h4><i class="fas fa-bolt text-danger"></i> Blast Tournament</h4>
-          <p><strong>Date:</strong> August 5, 2025</p>
-          <p><strong>Entry Fee:</strong> 100 Taka</p>
-          <p><strong>Prize:</strong> Special Skins + Diamonds</p>
-          <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Register Now</a>
-        </div>
-        <div class="card">
-          <h4><i class="fas fa-fist-raised text-primary"></i> Weekly Scrims</h4>
-          <p><strong>Date:</strong> Every Saturday</p>
-          <p><strong>Entry Fee:</strong> Free</p>
-          <p><strong>Prize:</strong> Discord Role + XP Points</p>
-          <a class="btn btn-primary" href="#">Join Scrim</a>
-        </div>
-      </div>
-    </section>
-
+<section id="tournaments" style="margin-bottom: 80px;">
+  <h2>Tournaments</h2>
+  <div class="dashboard">
+    <div class="card">
+      <h4><i class="fas fa-fire text-warning"></i> Daily Scrim</h4>
+      <p><strong>Date:</strong> July 28, 2025</p>
+      <p><strong>Entry Fee:</strong> 25</p>
+      <p><strong>Prize:</strong> 250 BDT</p>
+      <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModalDailyScrim">Register Now</a>
+    </div>
+    <div class="card">
+      <h4><i class="fas fa-users text-info"></i> Spacial Tournament</h4>
+      <p><strong>Date:</strong> N/A</p>
+      <p><strong>Entry Fee:</strong> 50</p>
+      <p><strong>Prize:</strong> 5000</p>
+      <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModalSpecial">Coming Soon</a>
+    </div>
+    <div class="card">
+      <h4><i class="fas fa-shield-alt text-success"></i> Clash Squad Tournament</h4>
+      <p><strong>Date:</strong> August 10, 2025</p>
+      <p><strong>Entry Fee:</strong> 120 Taka</p>
+      <p><strong>Prize:</strong> 200 BDT</p>
+      <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModalClashSquad">Coming soon</a>
+    </div>
+    <div class="card">
+      <h4><i class="fas fa-bolt text-danger"></i> Blast Tournament</h4>
+      <p><strong>Date:</strong> August 5, 2025</p>
+      <p><strong>Entry Fee:</strong> 70 Taka </p>
+      <p><strong>Prize:</strong> 1500 BDT </p>
+      <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModalBlast">Coming soon</a>
+    </div>
+    <div class="card">
+      <h4><i class="fas fa-fist-raised text-primary"></i> Weekly Scrims</h4>
+      <p><strong>Date:</strong> Every Friday </p>
+      <p><strong>Entry Fee:</strong> 50 </p>
+      <p><strong>Prize:</strong> 500 </p>
+      <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModalWeekly">Pre Register</a>
+    </div>
+  </div>
+</section>
     <!-- Winners -->
     <section id="winners" style="margin-bottom: 80px;">
       <h2>Champions Gallery</h2>
@@ -451,16 +458,84 @@
       </p>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" style="margin-bottom: 80px;">
-      <h2>FAQ</h2>
-      <ul>
-        <li><strong>Q:</strong> How to join a tournament?<br/><strong>A:</strong> Click register and follow instructions.</li>
-        <li><strong>Q:</strong> What is the entry fee?<br/><strong>A:</strong> Entry fees vary per tournament, mostly free or 250 Taka.</li>
-        <li><strong>Q:</strong> Where to find winners list?<br/><strong>A:</strong> Check Champions Gallery section.</li>
-      </ul>
-    </section>
+<section id="faq" style="margin-bottom: 80px;">
+  <h2>FAQ</h2>
+  <ul id="default-faqs">
+    <li><strong>Q:</strong> How to join a tournament?<br/><strong>A:</strong> Click register and follow instructions.</li>
+    <li><strong>Q:</strong> What is the entry fee?<br/><strong>A:</strong> Entry fees vary per tournament, mostly free or 250 Taka.</li>
+    <li><strong>Q:</strong> Where to find winners list?<br/><strong>A:</strong> Check Champions Gallery section.</li>
+  </ul>
+  <hr>
+  <h4>Ask your question</h4>
+  <form id="faq-form" style="margin-bottom:20px;">
+    <input type="text" id="faq-question" name="question" placeholder="Type your question..." required style="padding:8px;width:70%;border-radius:8px;border:2px solid #00c8e6;display:block;margin-bottom:10px;">
+    <input type="email" id="faq-email" name="email" placeholder="Your Contact Mail" required style="padding:8px;width:70%;border-radius:8px;border:2px solid #00c8e6;display:block;margin-bottom:10px;">
+    <button type="submit" style="padding:8px 20px;border:none;background:#00c8e6;color:#000;border-radius:8px;font-weight:bold;">Ask</button>
+  </form>
+  <div id="faq-success" style="display:none;color:green;margin-bottom:10px;">Question sent!</div>
+  <h5>User Questions</h5>
+  <ul id="user-faqs"></ul>
+</section>
 
+<!-- Add EmailJS SDK if not already present -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+(function(){
+  emailjs.init("VYKK057zR_OaMB7bb"); // Your Public Key
+})();
+
+function loadFaqs() {
+  const faqs = JSON.parse(localStorage.getItem('userFaqs') || "[]");
+  const ul = document.getElementById('user-faqs');
+  ul.innerHTML = "";
+  faqs.forEach((faq, idx) => {
+    let html = `<li><strong>Q:</strong> ${faq.q}`;
+    if (faq.a) html += `<br/><strong>A:</strong> ${faq.a}`;
+    // Admin answer box (simple password check)
+    html += `<br/><input type="text" id="ans${idx}" placeholder="Type answer..." style="width:55%;padding:6px;border-radius:6px;border:1px solid #00c8e6;">
+    <button onclick="answerFaq(${idx})" style="padding:4px 12px;margin-left:5px;border-radius:6px;border:none;background:#00c8e6;color:#000;font-weight:bold;">Ans</button></li>`;
+    ul.innerHTML += html;
+  });
+}
+
+function answerFaq(idx) {
+  // Simple admin password prompt for answer (change 'adminpass'!)
+  if (prompt("Enter admin password:") !== "adminpass") return alert("Wrong password!");
+  const faqs = JSON.parse(localStorage.getItem('userFaqs') || "[]");
+  const ans = document.getElementById('ans'+idx).value;
+  faqs[idx].a = ans;
+  localStorage.setItem('userFaqs', JSON.stringify(faqs));
+  loadFaqs();
+}
+
+// FAQ form submission
+document.getElementById('faq-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  const q = document.getElementById('faq-question').value.trim();
+  if (q.length === 0) return;
+  // Add to localStorage
+  const faqs = JSON.parse(localStorage.getItem('userFaqs') || "[]");
+  faqs.push({q:q});
+  localStorage.setItem('userFaqs', JSON.stringify(faqs));
+  // Show success
+  document.getElementById('faq-success').style.display = 'block';
+  setTimeout(()=>{document.getElementById('faq-success').style.display='none';}, 2000);
+  document.getElementById('faq-question').value = "";
+  loadFaqs();
+  // Send to EmailJS
+  emailjs.send('service_vs72qje', 'template_vm9bbht', {
+    question: q
+  })
+  .then(function() {
+    // optional: show sent status
+  }, function(error) {
+    // optional: show error status
+  });
+});
+
+loadFaqs();
+</script>
+</section>
     <!-- Sponsors -->
     <section id="sponsors" style="margin-bottom: 80px;">
       <h2>Our Sponsors</h2>
@@ -477,30 +552,158 @@
       <h2>Contact Us</h2>
       <p>For queries and support, contact us:</p>
       <ul>
-        <li>Email: support@limitlesstournaments.com</li>
-        <li>Phone: +880123456789</li>
+        <li>Email: limitlesstour999.gmailcom</li>
+        <li>Phone: +01847853867</li>
         <li>Facebook: <a href="https://www.facebook.com/profile.php?id=61578322031694" target="_blank" style="color:#00c8e6; text-decoration:none;">Limitless Facebook Page</a></li>
       </ul>
     </section>
 
-  </div>
+    <!-- Custom Contact Form Section -->
+    <section id="contact-form-section" style="background: #000011; padding: 80px 20px;">
+      <h3 style="text-align: center; color: #fff; font-size: 2.5em; text-shadow: 2px 2px #00c8e6; margin-bottom: 40px;">CONTACT ME</h3>
+      <form id="contact-form" style="
+        max-width: 600px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0,200,230,0.2);
+      ">
+        <label style="color: #00c8e6; font-weight: 600;">Your name:</label>
+        <input type="text" name="name" placeholder="Enter your name" required style="width: 100%; padding: 12px; margin: 10px 0 20px; border: none; border-bottom: 2px solid #00c8e6; background: transparent; color: #fff; font-size: 1em;">
 
-  <!-- Register Modal -->
-  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="registerModalLabel">Tournament Registration</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>Registration form will be available soon.</p>
-          <p>Contact us via Facebook for more details.</p>
-          <a href="https://www.facebook.com/profile.php?id=61578322031694" target="_blank" class="btn btn-primary">Facebook Page</a>
+        <label style="color: #00c8e6; font-weight: 600;">Your Email:</label>
+        <input type="email" name="email" placeholder="Enter your email" required style="width: 100%; padding: 12px; margin: 10px 0 20px; border: none; border-bottom: 2px solid #00c8e6; background: transparent; color: #fff; font-size: 1em;">
+
+        <label style="color: #00c8e6; font-weight: 600;">Subject:</label>
+        <input type="text" name="subject" placeholder="Subject" style="width: 100%; padding: 12px; margin: 10px 0 20px; border: none; border-bottom: 2px solid #00c8e6; background: transparent; color: #fff; font-size: 1em;">
+
+        <label style="color: #00c8e6; font-weight: 600;">Your message:</label>
+        <textarea name="message" placeholder="Type your message here..." rows="5" required style="width: 100%; padding: 12px; margin: 10px 0 30px; border: 2px solid #00c8e6; border-radius: 10px; background: transparent; color: #fff; font-size: 1em; resize: vertical;"></textarea>
+
+        <button type="submit" id="send-btn" style="background: linear-gradient(135deg, #00c8e6, #009bb3); border: none; padding: 12px 30px; color: #000; font-weight: bold; border-radius: 30px; cursor: pointer; font-size: 1.1em; transition: background 0.3s ease;">Send</button>
+      </form>
+    </section>
+
+ <!-- Daily Scrim Modal -->
+<div class="modal fade" id="registerModalDailyScrim" tabindex="-1" aria-labelledby="registerModalDailyScrimLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registerModalDailyScrimLabel">Register for Daily Scrim</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Welcome to Daily Scrim registration!</p>
+        <p>Entry Fee: 25 BDT | Prize: 250 BDT</p>
+        <div style="display: flex; gap: 10px;">
+          <a href="https://www.facebook.com/profile.php?id=61578322031694" target="_blank" class="btn btn-primary">
+            <i class="fab fa-facebook"></i> Facebook Page
+          </a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAHzaQR5sjmd5Z7c_Gtv7uoCv7fb9T6aGfI_L3mQ864tI5-g/viewform?usp=header" class="btn btn-success">
+            <i class="fas fa-edit"></i> Registration Form
+          </a>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+<!-- Special Tournament Modal -->
+<div class="modal fade" id="registerModalSpecial" tabindex="-1" aria-labelledby="registerModalSpecialLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registerModalSpecialLabel">Register for Special Tournament</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Special Tournament registration will open soon!</p>
+        <p>Entry Fee: 50 BDT | Prize: 5000 BDT</p>
+        <div style="display: flex; gap: 10px;">
+          <a href="https://www.facebook.com/profile.php?id=61578322031694" target="_blank" class="btn btn-primary">
+            <i class="fab fa-facebook"></i> Facebook Page
+          </a>
+          <a href="/registration-form.html" class="btn btn-success">
+            <i class="fas fa-edit"></i> Registration Form
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Clash Squad Modal -->
+<div class="modal fade" id="registerModalClashSquad" tabindex="-1" aria-labelledby="registerModalClashSquadLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registerModalClashSquadLabel">Register for Clash Squad Tournament</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Clash Squad registration will open soon!</p>
+        <p>Entry Fee: 120 BDT | Prize: 200 BDT</p>
+        <div style="display: flex; gap: 10px;">
+          <a href="https://www.facebook.com/profile.php?id=61578322031694" target="_blank" class="btn btn-primary">
+            <i class="fab fa-facebook"></i> Facebook Page
+          </a>
+          <a href="/registration-form.html" class="btn btn-success">
+            <i class="fas fa-edit"></i> Registration Form
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Blast Tournament Modal -->
+<div class="modal fade" id="registerModalBlast" tabindex="-1" aria-labelledby="registerModalBlastLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registerModalBlastLabel">Register for Blast Tournament</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Blast Tournament registration will open soon!</p>
+        <p>Entry Fee: 70 BDT | Prize: 1500 BDT</p>
+        <div style="display: flex; gap: 10px;">
+          <a href="https://www.facebook.com/profile.php?id=61578322031694" target="_blank" class="btn btn-primary">
+            <i class="fab fa-facebook"></i> Facebook Page
+          </a>
+          <a href="/registration-form.html" class="btn btn-success">
+            <i class="fas fa-edit"></i> Registration Form
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Weekly Scrims Modal -->
+<div class="modal fade" id="registerModalWeekly" tabindex="-1" aria-labelledby="registerModalWeeklyLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registerModalWeeklyLabel">Register for Weekly Scrims</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Weekly Scrims registration is open every Friday.</p>
+        <p>Entry Fee: 50 BDT | Prize: 500 BDT</p>
+        <div style="display: flex; gap: 10px;">
+          <a href="https://www.facebook.com/profile.php?id=61578322031694" target="_blank" class="btn btn-primary">
+            <i class="fab fa-facebook"></i> Facebook Page
+          </a>
+          <a href="/registration-form.html" class="btn btn-success">
+            <i class="fas fa-edit"></i> Registration Form
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -554,70 +757,39 @@
       });
     });
   </script>
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("VYKK057zR_OaMB7bb");
+    })();
+
+    const form = document.getElementById("contact-form");
+    const button = document.getElementById("send-btn");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      button.disabled = true;
+      button.textContent = "Sending...";
+
+      emailjs.sendForm('service_vs72qje', 'template_vm9bbht', this)
+        .then(function() {
+          button.textContent = "Sent!";
+          form.reset();
+          setTimeout(() => {
+            button.textContent = "Send";
+            button.disabled = false;
+          }, 2000);
+        }, function(error) {
+          button.textContent = "Failed. Try again";
+          setTimeout(() => {
+            button.textContent = "Send";
+            button.disabled = false;
+          }, 3000);
+        });
+    });
+  </script>
 </body>
 </html>
-<section id="contact" style="background: #000011; padding: 80px 20px;">
-  <h3 style="text-align: center; color: #fff; font-size: 2.5em; text-shadow: 2px 2px #00c8e6; margin-bottom: 40px;">CONTACT ME</h3>
-
-  <form id="contact-form" style="
-    max-width: 600px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0,200,230,0.2);
-  ">
-    <label style="color: #00c8e6; font-weight: 600;">Your name:</label>
-    <input type="text" name="name" placeholder="Enter your name" required style="width: 100%; padding: 12px; margin: 10px 0 20px; border: none; border-bottom: 2px solid #00c8e6; background: transparent; color: #fff; font-size: 1em;">
-
-    <label style="color: #00c8e6; font-weight: 600;">Your Email:</label>
-    <input type="email" name="email" placeholder="Enter your email" required style="width: 100%; padding: 12px; margin: 10px 0 20px; border: none; border-bottom: 2px solid #00c8e6; background: transparent; color: #fff; font-size: 1em;">
-
-    <label style="color: #00c8e6; font-weight: 600;">Subject:</label>
-    <input type="text" name="subject" placeholder="Subject" style="width: 100%; padding: 12px; margin: 10px 0 20px; border: none; border-bottom: 2px solid #00c8e6; background: transparent; color: #fff; font-size: 1em;">
-
-    <label style="color: #00c8e6; font-weight: 600;">Your message:</label>
-    <textarea name="message" placeholder="Type your message here..." rows="5" required style="width: 100%; padding: 12px; margin: 10px 0 30px; border: 2px solid #00c8e6; border-radius: 10px; background: transparent; color: #fff; font-size: 1em; resize: vertical;"></textarea>
-
-    <button type="submit" id="send-btn" style="background: linear-gradient(135deg, #00c8e6, #009bb3); border: none; padding: 12px 30px; color: #000; font-weight: bold; border-radius: 30px; cursor: pointer; font-size: 1.1em; transition: background 0.3s ease;">Send</button>
-  </form>
-</section>
-
-<!-- EmailJS SDK -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-  (function(){
-    emailjs.init("VYKK057zR_OaMB7bb"); // Your Public Key
-  })();
-
-  const form = document.getElementById("contact-form");
-  const button = document.getElementById("send-btn");
-
-  form.addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    button.disabled = true;
-    button.textContent = "Sending...";
-
-    emailjs.sendForm('service_vs72qje', 'template_vm9bbht', this)
-      .then(function() {
-        button.textContent = "Sent!";
-        form.reset();
-        setTimeout(() => {
-          button.textContent = "Send";
-          button.disabled = false;
-        }, 2000);
-      }, function(error) {
-        button.textContent = "Failed. Try again";
-        setTimeout(() => {
-          button.textContent = "Send";
-          button.disabled = false;
-        }, 3000);
-      });
-  });
-</script>
-
- <footer>
-      &copy; 2025 Limitless Tournaments. All rights reserved.
-    </footer>
-</script>
