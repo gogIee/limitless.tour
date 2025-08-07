@@ -480,7 +480,7 @@
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
 (function(){
-  emailjs.init("VYKK057zR_OaMB7bb"); // Your Public Key
+  emailjs.init("nVox49mUniwQoNWKo"); // Your Public Key
 })();
 
 // FAQ form submission
@@ -495,7 +495,7 @@ document.getElementById('faq-form').addEventListener('submit', function(e){
   document.getElementById('faq-question').value = "";
   document.getElementById('faq-email').value = "";
   // Send to EmailJS
-  emailjs.send('service_vs72qje', 'template_vm9bbht', {
+  emailjs.send('service_fk3qazd', 'template_tbdbuxo', {
     question: q,
     email: email
   })
@@ -733,7 +733,7 @@ document.getElementById('faq-form').addEventListener('submit', function(e){
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script>
     (function(){
-      emailjs.init("VYKK057zR_OaMB7bb");
+      emailjs.init("nVox49mUniwQoNWKo");
     })();
 
     const form = document.getElementById("contact-form");
@@ -745,7 +745,7 @@ document.getElementById('faq-form').addEventListener('submit', function(e){
       button.disabled = true;
       button.textContent = "Sending...";
 
-      emailjs.sendForm('service_vs72qje', 'template_vm9bbht', this)
+      emailjs.sendForm('service_nqwb09k', 'template_nunjb4b', this)
         .then(function() {
           button.textContent = "Sent!";
           form.reset();
